@@ -71,7 +71,7 @@
   template:
     src: SolarWindsAgent.ini.j2
     dest: "{{ swiagentd_ini_file }}"
-    mode: 0644
+    mode: 0600
 
 - name: Install Solarwinds Agent.
   package:
@@ -89,3 +89,8 @@
 - debug:
     var: swiagent_install
     verbosity: 3
+
+- name: remove agent configuration template.
+  file:
+    dest: "{{ swiagentd_ini_file }}"
+    state: absent

@@ -70,9 +70,11 @@ Including an example of how to use your role (for instance, with variables passe
         # swiagent_ipaddress and target should be the same destination
         swiagent_ipaddress: "10.15.1.102"
         swiagent_target: solarwinds_poller.example.com
+        swiagent_username: admin
+        swiagent_password: SooperSekretPassword
 
       roles:
-        - deekayen.swiagent
+        - haraldkoch.swiagent
 
 License
 -------
@@ -83,3 +85,5 @@ Author Information
 ------------------
 
 David Norman
+
+modified by Harald Koch to deploy in active mode using a different initialization technique.
