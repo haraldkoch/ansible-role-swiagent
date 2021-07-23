@@ -58,14 +58,6 @@
   package:
     name: perl
     state: present
-  register: perl_install
-  until: perl_install.rc == 0
-  retries: 2
-  delay: 2
-
-- debug:
-    var: perl_install
-    verbosity: 3
 
 - name: Copy agent configuration ini template.
   template:
@@ -77,18 +69,10 @@
   package:
     name: swiagent
     state: present
-  register: swiagent_install
-  retries: 2
-  delay: 2
-  until: swiagent_install.rc == 0
   notify:
     - init swiagentd
     - verify path ownership
     - start swiagentd
-
-- debug:
-    var: swiagent_install
-    verbosity: 3
 
 - name: remove agent configuration template.
   file:
